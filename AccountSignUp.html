@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Exercise 6.10 Account Sign-Up Form -->
+<!-- Implement a web page the presents an "account sign-up" form -->
+<!-- Dovi Wilensky, CS81, 22Jul2016 -->
+
+<!-- login and password are required fields, if blank Submit should be disabled --> 
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>More Forms</title>
+    </head>
+    <body>
+        <h1>Account Sign-Up</h1>
+        <p>Please fill out your information below.</p>
+	  
+<!-- web page should also provide a Submit button that hypothetically sends the acct sign-up req. -->
+        <form method = "post" action = "https://github.com/dwilensky/Unit9">
+	
+<!-- text input fields for a user's real name, e-mail address, login name and password -->
+        <p><label>Name: 
+               <input name = "name" type = "text" size = "25">
+            </label></p>
+
+        <p><label>E-mail Address: 
+            <input name = "email" type = "text"  size = "25">
+        </label></p>              
+		 
+<!-- login and password are required fields, if blank Submit should be disabled --> 
+        <p><label>Login: 
+            <input name = "login" type = "text"  size = "25" required>
+        </label></p>    		 
+		 
+        <p><label>Password: 
+            <input name = "password" type = "password" id="password" size = "25" required>
+        </label></p>    		 
+
+        <p><label>Please retype password: 
+           <input name = "rePassword" type = "password"  id="rePassword" oninput="check(this)" size = "25" required>
+        </label></p>    		 
+<!-- include a "please retype password" where Submit is disabled if they do not match -->	 
+        <script language='javascript' type='text/javascript'>
+            function check(input) {
+                if (input.value != document.getElementById('password').value) {
+                    input.setCustomValidity('Password Must be Matching.');
+                } else {
+                    // input is valid -- reset the error message
+                    input.setCustomValidity('');
+                }
+            }
+		</script>		 
+        <p>
+            <input type = "submit" value = "Submit">
+        </p>   
+        </form>
+    </body>
+</html>
